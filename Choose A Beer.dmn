@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_01v0bmh" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="b565b54" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0" camunda:diagramRelationId="943c09da-0ff6-410d-bf91-a0a80c8878f2">
+  <decision id="Decision_12ue3dr" name="Decide on Beer Style">
+    <informationRequirement id="InformationRequirement_041fnva">
+      <requiredInput href="#InputData_1y0qg5c" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1hwanxm">
+      <requiredInput href="#InputData_0en72ad" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1h97rtf">
+      <requiredInput href="#InputData_0x65fsb" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_193cr5k">
+      <requiredInput href="#InputData_10nc6x0" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1c5fyxt" hitPolicy="COLLECT">
+      <input id="Input_1" label="Malty">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>Malty</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0z89pja" label="Sweetnss">
+        <inputExpression id="LiteralExpression_09999dn" typeRef="number">
+          <text>Sweetness</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1mb792x" label="Hopiness">
+        <inputExpression id="LiteralExpression_12rn8pl" typeRef="number">
+          <text>Hopiness</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_14wf1z6" label="Fruitiness">
+        <inputExpression id="LiteralExpression_0s26sds" typeRef="number">
+          <text>Fruitiness</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Beer Style" name="beerStyles" typeRef="string">
+        <outputValues id="UnaryTests_1lp5ru7">
+          <text>"IPA","Pale Ale","Amber Ale","Stout","Porter","Pilsner","Helles","Dunkel","Wheat Beer","Sour Beer","Belgian Ale"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1j8l7d4">
+        <inputEntry id="UnaryTests_1yj4vgl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dek2t9">
+          <text>&lt;4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fohto8">
+          <text>[8.. 10]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01nxxje">
+          <text>[6..10]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0son8zz">
+          <text>"IPA"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u5kybz">
+        <inputEntry id="UnaryTests_03k4qj3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ia16az">
+          <text>&lt;= 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mq8e2s">
+          <text>[5..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vse6z3">
+          <text>[4.. 6]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fvtctj">
+          <text>"Pale Ale"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dk0d4t">
+        <inputEntry id="UnaryTests_1tz8zss">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13vkpqm">
+          <text>[5.. 8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13d4apv">
+          <text>[4.. 6]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14mrj4u">
+          <text>[4.. 6]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02qaag7">
+          <text>"Amber Ale"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mwol98">
+        <inputEntry id="UnaryTests_0j7qrfx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o5tb1f">
+          <text>[6..10]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b10zp7">
+          <text>[4..6]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0idy873">
+          <text>&lt;5</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qb8suj">
+          <text>"Stout"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jrk6ya">
+        <inputEntry id="UnaryTests_0twfycl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mdspvd">
+          <text>[6..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cp3550">
+          <text>[4..6]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0id3jlo">
+          <text>&lt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ku2fhq">
+          <text>"Porter"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13tufj1">
+        <inputEntry id="UnaryTests_0f76hf0">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ljn32e">
+          <text>[2.. 5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zv9nsy">
+          <text>[7.. 8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fca6bb">
+          <text>&lt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w8173z">
+          <text>"Pilsner"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oprosx">
+        <inputEntry id="UnaryTests_08867w0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m3iyf8">
+          <text>[2.. 5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kpjd22">
+          <text>[7.. 8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rs5peq">
+          <text>&lt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d45pkb">
+          <text>"Helles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1t9ghsm">
+        <inputEntry id="UnaryTests_1u54axr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01e664h">
+          <text>[1.. 5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ci5zwn">
+          <text>[1.. 5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aia8bl">
+          <text>&lt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0k58f81">
+          <text>"Dunkel"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j89oe5">
+        <inputEntry id="UnaryTests_0c1vvsv">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1it362s">
+          <text>&gt;4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dpcdau">
+          <text>[1.. 5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07bm3jo">
+          <text>[1.. 6]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l9hkdx">
+          <text>"Wheat Beer"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07arvqs">
+        <inputEntry id="UnaryTests_0tz46sg">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08gr9g0">
+          <text>&lt;3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mx7k4a">
+          <text>[9.. 10]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_107cfcd">
+          <text>&lt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x4j4qm">
+          <text>"Sour Beer"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l7rix1">
+        <inputEntry id="UnaryTests_0g10sp0">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ksywi">
+          <text>[4.. 8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x996us">
+          <text>[4.. 8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00d906m">
+          <text>[4.. 8]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g16oxh">
+          <text>"Belgian Ale"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1y0qg5c" name="Sweetness" />
+  <inputData id="InputData_0en72ad" name="Hopiness" />
+  <inputData id="InputData_0x65fsb" name="Malty" />
+  <inputData id="InputData_10nc6x0" name="Fruitiness" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_12ue3dr">
+        <dc:Bounds height="80" width="180" x="390" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1smjpig" dmnElementRef="InputData_1y0qg5c">
+        <dc:Bounds height="45" width="125" x="347" y="367" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1860eim" dmnElementRef="InformationRequirement_041fnva">
+        <di:waypoint x="410" y="367" />
+        <di:waypoint x="462" y="200" />
+        <di:waypoint x="462" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0ca415f" dmnElementRef="InputData_0en72ad">
+        <dc:Bounds height="45" width="125" x="517" y="317" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0f9kae6" dmnElementRef="InformationRequirement_1hwanxm">
+        <di:waypoint x="580" y="317" />
+        <di:waypoint x="498" y="200" />
+        <di:waypoint x="498" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1s2ma19" dmnElementRef="InputData_0x65fsb">
+        <dc:Bounds height="45" width="125" x="177" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0gxtvg4" dmnElementRef="InformationRequirement_1h97rtf">
+        <di:waypoint x="240" y="337" />
+        <di:waypoint x="426" y="200" />
+        <di:waypoint x="426" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1q1iytr" dmnElementRef="InputData_10nc6x0">
+        <dc:Bounds height="45" width="125" x="697" y="347" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_13w2mn3" dmnElementRef="InformationRequirement_193cr5k">
+        <di:waypoint x="760" y="347" />
+        <di:waypoint x="534" y="200" />
+        <di:waypoint x="534" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

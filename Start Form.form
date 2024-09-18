@@ -1,0 +1,122 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "6e26945"
+  },
+  "schemaVersion": 16,
+  "id": "Form_0gtp8x4",
+  "components": [
+    {
+      "text": "# How do you like your beer?",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1uisrey",
+        "columns": null
+      },
+      "id": "Field_18to1fm"
+    },
+    {
+      "label": "Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0vkdzog",
+        "columns": null
+      },
+      "id": "Field_0k1nq7l",
+      "key": "userName",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Email Address",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0vkdzog",
+        "columns": null
+      },
+      "id": "Field_00pssvm",
+      "key": "email",
+      "validate": {
+        "required": true,
+        "validationType": "email"
+      }
+    },
+    {
+      "label": "Location",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0vkdzog",
+        "columns": null
+      },
+      "id": "Field_0o34x8q",
+      "key": "location",
+      "description": "Where are you right now?",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Do you like Malty Beer?",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_0qnabkb",
+        "columns": null
+      },
+      "id": "Field_0e9rfwk",
+      "key": "Malty"
+    },
+    {
+      "label": "Sweetness",
+      "type": "number",
+      "layout": {
+        "row": "Row_0xzyk9k",
+        "columns": null
+      },
+      "id": "Field_1gbst40",
+      "key": "Sweetness",
+      "description": "1 not at all, 10 yes very",
+      "validate": {
+        "min": 1,
+        "max": 10,
+        "required": true
+      }
+    },
+    {
+      "label": "Fruitiness",
+      "type": "number",
+      "layout": {
+        "row": "Row_0xzyk9k",
+        "columns": null
+      },
+      "id": "Field_0xlyj3j",
+      "key": "Fruitiness",
+      "validate": {
+        "min": 1,
+        "max": 10,
+        "required": true
+      },
+      "description": "1 not at all, 10 yes very"
+    },
+    {
+      "label": "Hopiness",
+      "type": "number",
+      "layout": {
+        "row": "Row_0xzyk9k",
+        "columns": null
+      },
+      "id": "Field_13vpzct",
+      "key": "Hopiness",
+      "validate": {
+        "min": 1,
+        "max": 10,
+        "required": true
+      },
+      "description": "1 not at all, 10 yes very"
+    }
+  ],
+  "type": "default"
+}
