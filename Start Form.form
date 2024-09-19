@@ -116,6 +116,22 @@
         "required": true
       },
       "description": "1 not at all, 10 yes very"
+    },
+    {
+      "label": "Have Any Dietary Requirements?",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_1sxga26",
+        "columns": null
+      },
+      "id": "Field_1a2ujb6",
+      "key": "dietaryReq",
+      "description": "(e.g. You're like Samantha so need something Gluten Free)",
+      "validate": {
+        "required": true,
+        "minLength": 2
+      },
+      "defaultValue": "No"
     }
   ],
   "type": "default"

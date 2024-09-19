@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="b565b54" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0" camunda:diagramRelationId="427ea2d6-da46-4ed9-b4ae-8b1e01762878">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="6e26945" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0" camunda:diagramRelationId="427ea2d6-da46-4ed9-b4ae-8b1e01762878">
   <bpmn:process id="ChooseBeer" name="Choosing a Beer Style" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Give Taste Preferences">
       <bpmn:extensionElements>
@@ -57,7 +57,7 @@
           <zeebe:input source="https://api.openai.com/v1/chat/completions" target="url" />
           <zeebe:input source="gpt-3.5-turbo" target="internal_model" />
           <zeebe:input source="1" target="internal_temperature" />
-          <zeebe:input source="=&#34;Can you suggest good beers in the style of &#34; +  string join(beerStyles,&#34;,&#34;) + &#34; that can be found in &#34; + location" target="internal_prompt" />
+          <zeebe:input source="=&#34;Can you suggest good beers for &#34; + userName +&#34; in the style of &#34; +  string join(beerStyles,&#34;,&#34;) + &#34; that can be found in &#34; + location + &#34; when asked if they have any Dietary Requirements, they said &#34; +dietaryReq" target="internal_prompt" />
           <zeebe:input source="1" target="internal_choices" />
           <zeebe:input source="=append(concatenate(if is defined(internal_systemMessage) then [{&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: internal_systemMessage}] else [], if is defined(internal_chatHistory) then internal_chatHistory else []), {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: internal_prompt})" target="internal_messages" />
           <zeebe:input source="={&#34;model&#34;: if is defined(internal_custom_model) then internal_custom_model else internal_model, &#34;messages&#34;: internal_messages, &#34;n&#34;: number(internal_choices), &#34;temperature&#34;: number(internal_temperature)}" target="body" />
@@ -91,7 +91,7 @@
           <zeebe:input source="https://api.openai.com/v1/chat/completions" target="url" />
           <zeebe:input source="gpt-3.5-turbo" target="internal_model" />
           <zeebe:input source="1" target="internal_temperature" />
-          <zeebe:input source="=&#34;Can you suggest a good beverage acoholic beverage for someone in &#34; + location + &#34; as an alternative to beer&#34;" target="internal_prompt" />
+          <zeebe:input source="=&#34;Can you suggest a good beverage acoholic beverage for &#34;+ userName + &#34; in &#34; + location + &#34; as an alternative to beer. when asked if they have any Dietary Requirements, they said &#34; +dietaryReq" target="internal_prompt" />
           <zeebe:input source="1" target="internal_choices" />
           <zeebe:input source="=append(concatenate(if is defined(internal_systemMessage) then [{&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: internal_systemMessage}] else [], if is defined(internal_chatHistory) then internal_chatHistory else []), {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: internal_prompt})" target="internal_messages" />
           <zeebe:input source="={&#34;model&#34;: if is defined(internal_custom_model) then internal_custom_model else internal_model, &#34;messages&#34;: internal_messages, &#34;n&#34;: number(internal_choices), &#34;temperature&#34;: number(internal_temperature)}" target="body" />
